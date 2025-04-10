@@ -33,12 +33,22 @@ public class Util {
                     pesquisarProduto();
                     break;
                 case 3:
-                    pesquisarFornecedor();
+                    pesquisar();
                     break;
                 default:
                     showInputDialog(null, "Opção inválida");
 
             }
+        }
+    }
+
+    private void pesquisar(){
+        String aux = " ";
+        Fornecedor fornecedor = pesquisarFornecedor();
+        if(fornecedor != null){
+            aux += "Fornecedor" + fornecedor.getNome() + "\n";
+            aux += "CNPJ" + fornecedor.getCnpj() + "\n";
+            showMessageDialog(null, aux);
         }
     }
 
@@ -48,7 +58,7 @@ public class Util {
         double valorUnitario;
         Fornecedor fornecedor = pesquisarFornecedor();
         if(fornecedor == null){
-           fornecedor = cadastrarFornecedor();
+            fornecedor = cadastrarFornecedor();
         }
 
         nome = showInputDialog("Nome do produto");
@@ -106,4 +116,3 @@ public class Util {
 
 
 }
-
